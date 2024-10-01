@@ -77,6 +77,22 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
   mvn flyway:migrate
   ```
 
+## Endpoints
+
+### Proyectos:
+- **GET /proyectos/**: Obtener todos los proyectos.
+- **POST /proyectos/**: Crear un nuevo proyecto.
+- **GET /proyectos/{id}**: Obtener un proyecto por ID.
+- **PUT /proyectos/{id}**: Actualizar un proyecto por ID.
+- **DELETE /proyectos/{id}**: Eliminar un proyecto por ID.
+
+### UsuarioProyecto:
+- **GET /usuarios_proyectos/**: Obtener todas las relaciones usuario-proyecto.
+- **POST /usuarios_proyectos/**: Crear una nueva relación usuario-proyecto.
+- **GET /usuarios_proyectos/{id}**: Obtener una relación usuario-proyecto por ID.
+- **PUT /usuarios_proyectos/{id}**: Actualizar una relación usuario-proyecto por ID.
+- **DELETE /usuarios_proyectos/{id}**: Eliminar una relación usuario-proyecto por ID.
+
 ## Contribuir
 
 1. Hacer un fork del repositorio.
