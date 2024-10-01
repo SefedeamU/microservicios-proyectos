@@ -1,28 +1,105 @@
 # Microservicio Proyectos
 
-## Descripción
-Este proyecto es un microservicio para la gestión de proyectos. Utiliza Spring Boot, JPA, y MySQL para la persistencia de datos.
+Este proyecto es un microservicio para la gestión de proyectos utilizando **Spring Boot** y **MySQL**.
 
 ## Estructura del Proyecto
-- `src/main/java/com/example/microservicio_proyectos/`: Contiene el código fuente de la aplicación.
-  - `model/`: Contiene las clases de modelo `Proyecto` y `UsuarioProyecto`.
-  - `repository/`: Contiene las interfaces de repositorio `ProyectoRepository` y `UsuarioProyectoRepository`.
-  - `service/`: Contiene la clase de servicio `ProyectoService`.
-  - `enums/`: Contiene los enumerados `Estado` y `Prioridad`.
+
+- `src/main/java/com/example/microservicio_proyectos/`
+  - `model/`
+    - `Proyecto.java`: Definición del modelo Proyecto.
+    - `UsuarioProyecto.java`: Definición del modelo UsuarioProyecto.
+  - `repository/`
+    - `ProyectoRepository.java`: Interfaz para operaciones CRUD en la entidad Proyecto.
+    - `UsuarioProyectoRepository.java`: Interfaz para operaciones CRUD en la entidad UsuarioProyecto.
+  - `service/`
+    - `ProyectoService.java`: Lógica de negocio para la gestión de proyectos.
+  - `enums/`
+    - `Estado.java`: Enumerado para los estados de un proyecto.
+    - `Prioridad.java`: Enumerado para las prioridades de un proyecto.
   - `MicroservicioProyectosApplication.java`: Clase principal para iniciar la aplicación Spring Boot.
-- `src/main/resources/`: Contiene los recursos de la aplicación.
+
+- `src/main/resources/`
   - `application.properties`: Archivo de configuración de la aplicación.
   - `db/migration/`: Contiene los scripts de migración de la base de datos.
 
-## Configuración de la Base de Datos
-El archivo `application.properties` contiene la configuración para conectarse a una base de datos MySQL:
+## Configuración
+
+1. Clonar el repositorio.
+2. Configurar la base de datos en el archivo `application.properties`.
+3. Instalar las dependencias y compilar el proyecto:
+
+   ```bash
+   mvn clean install
+   ```
+
+4. Ejecutar la aplicación:
+
+   ```bash
+   mvn spring-boot:run
+   ```
+
+## Uso
+
+### Endpoints
+
+**Proyectos:**
+- **GET /proyectos/**: Obtener todos los proyectos.
+- **POST /proyectos/**: Crear un nuevo proyecto.
+- **GET /proyectos/{id}**: Obtener un proyecto por ID.
+- **PUT /proyectos/{id}**: Actualizar un proyecto por ID.
+- **DELETE /proyectos/{id}**: Eliminar un proyecto por ID.
+
+**UsuarioProyecto:**
+- **GET /usuarios_proyectos/**: Obtener todas las relaciones usuario-proyecto.
+- **POST /usuarios_proyectos/**: Crear una nueva relación usuario-proyecto.
+- **GET /usuarios_proyectos/{id}**: Obtener una relación usuario-proyecto por ID.
+- **PUT /usuarios_proyectos/{id}**: Actualizar una relación usuario-proyecto por ID.
+- **DELETE /usuarios_proyectos/{id}**: Eliminar una relación usuario-proyecto por ID.
+
+## Configuración de la Base de Datos:
 
 ```ini
-spring.datasource.url=jdbc:mysql://18.235.139.228:3306/proyectos_db
-spring.datasource.username=api-proyectos
-spring.datasource.password=Mysql@123
+spring.datasource.url=jdbc:mysql://localhost:3306/proyectos_db
+spring.datasource.username=usuario
+spring.datasource.password=contraseña
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+```
+
+## Scripts
+
+- **Inicializar la base de datos:**
+
+  ```bash
+  mvn flyway:migrate
+  ```
+
+## Contribuir
+
+1. Hacer un fork del repositorio.
+2. Crear una nueva rama:
+
+   ```bash
+   git checkout -b feature/nueva-funcionalidad
+   ```
+
+3. Realizar los cambios necesarios y hacer commit:
+
+   ```bash
+   git commit -am 'Añadir nueva funcionalidad'
+   ```
+
+4. Hacer push a la rama:
+
+   ```bash
+   git push origin feature/nueva-funcionalidad
+   ```
+
+5. Crear un Pull Request.
+
+## Licencia
+
+Este proyecto está licenciado bajo los términos de la licencia **MIT**.
