@@ -40,8 +40,6 @@ Este proyecto es un microservicio para la gestión de proyectos utilizando **Spr
 
 ## Uso
 
-### Endpoints
-
 **Proyectos:**
 - **GET /proyectos/**: Obtener todos los proyectos.
 - **POST /proyectos/**: Crear un nuevo proyecto.
@@ -56,6 +54,60 @@ Este proyecto es un microservicio para la gestión de proyectos utilizando **Spr
 - **PUT /usuarios_proyectos/{id}**: Actualizar una relación usuario-proyecto por ID.
 - **DELETE /usuarios_proyectos/{id}**: Eliminar una relación usuario-proyecto por ID.
 
+## Endpoints
+
+### Proyectos:
+- **GET /proyectos/**: Obtener todos los proyectos.
+- **POST /proyectos/**: Crear un nuevo proyecto.
+    - **Body**:
+      ```json
+      {
+        "nombre": "string",
+        "descripcion": "string",
+        "fechaInicio": "string",
+        "fechaFin": "string",
+        "estado": "string",
+        "prioridad": "string"
+      }
+      ```
+- **GET /proyectos/{id}**: Obtener un proyecto por ID.
+- **PUT /proyectos/{id}**: Actualizar un proyecto por ID.
+    - **Body**:
+      ```json
+      {
+        "nombre": "string",
+        "descripcion": "string",
+        "fechaInicio": "string",
+        "fechaFin": "string",
+        "estado": "string",
+        "prioridad": "string"
+      }
+      ```
+- **DELETE /proyectos/{id}**: Eliminar un proyecto por ID.
+
+### UsuarioProyecto:
+- **GET /usuarios_proyectos/**: Obtener todas las relaciones usuario-proyecto.
+- **POST /usuarios_proyectos/**: Crear una nueva relación usuario-proyecto.
+    - **Body**:
+      ```json
+      {
+        "usuarioId": "number",
+        "proyectoId": "number",
+        "rol": "string"
+      }
+      ```
+- **GET /usuarios_proyectos/{id}**: Obtener una relación usuario-proyecto por ID.
+- **PUT /usuarios_proyectos/{id}**: Actualizar una relación usuario-proyecto por ID.
+    - **Body**:
+      ```json
+      {
+        "usuarioId": "number",
+        "proyectoId": "number",
+        "rol": "string"
+      }
+      ```
+- **DELETE /usuarios_proyectos/{id}**: Eliminar una relación usuario-proyecto por ID.
+- 
 ## Configuración de la Base de Datos:
 
 ```ini
