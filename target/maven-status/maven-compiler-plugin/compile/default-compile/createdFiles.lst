@@ -1,0 +1,12 @@
+com\example\microservicio_proyectos\Dto\TareaDto.class
+com\example\microservicio_proyectos\repository\ProyectoRepository.class
+com\example\microservicio_proyectos\controller\UsuarioProyectoController.class
+com\example\microservicio_proyectos\MicroservicioProyectosApplication.class
+com\example\microservicio_proyectos\service\ProyectoService.class
+com\example\microservicio_proyectos\controller\ProyectoController.class
+com\example\microservicio_proyectos\enums\Prioridad.class
+com\example\microservicio_proyectos\service\UsuarioProyectoService.class
+com\example\microservicio_proyectos\repository\UsuarioProyectoRepository.class
+com\example\microservicio_proyectos\enums\Estado.class
+com\example\microservicio_proyectos\model\UsuarioProyecto.class
+com\example\microservicio_proyectos\model\Proyecto.class
