@@ -5,3 +5,9 @@ services:
     build: .
     ports:
       - "8080:8080"
+    networks:
+      - microservicios_network_mv1
+
+networks:
+  microservicios_network_mv1:
+    external: true
