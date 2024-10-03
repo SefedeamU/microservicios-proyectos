@@ -1,5 +1,6 @@
 package com.example.microservicio_proyectos.controller;
 
+import com.example.microservicio_proyectos.Dto.TareaDto;
 import com.example.microservicio_proyectos.model.Proyecto;
 import com.example.microservicio_proyectos.model.UsuarioProyecto;
 import com.example.microservicio_proyectos.service.ProyectoService;
@@ -62,5 +63,10 @@ public class ProyectoController {
     public ResponseEntity<List<UsuarioProyecto>> obtenerUsuariosPorProyecto(@PathVariable Long id) {
         List<UsuarioProyecto> usuariosProyectos = usuarioProyectoService.obtenerUsuariosPorProyectoId(id);
         return ResponseEntity.ok(usuariosProyectos);
+    }
+
+    @GetMapping("/{id}/tareas")
+    public List<TareaDto> obtenerTareasPorProyecto(@PathVariable Long id) {
+        return proyectoService.obtenerTareasPorProyecto(id);
     }
 }

@@ -5,12 +5,30 @@ import com.example.microservicio_proyectos.model.Proyecto;
 import com.example.microservicio_proyectos.repository.ProyectoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
+import com.example.microservicio_proyectos.Dto.TareaDto;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class ProyectoService {
+
+    private final WebClient.Builder webClientBuilder;
+
+    public ProyectoService(WebClient.Builder webClientBuilder) {
+        this.webClientBuilder = webClientBuilder;
+    }
+
+    public List<TareaDto> obtenerTareasPorProyecto(Long proyectoId) {
+        return webClientBuilder.build()
+                .get()
+                .uri("http://microservicio_tareas/tareas?proyectoId=" + proyectoId)
+                .retrieve()
+                .bodyToFlux(TareaDto.class)
+                .collectList()
+                .block();
+    }
 
     @Autowired
     private ProyectoRepository proyectoRepository;
