@@ -22,6 +22,10 @@ public class UsuarioProyectoService {
         return usuarioProyectoRepository.findAll();
     }
 
+    public List<UsuarioProyecto> obtenerUsuariosPorProyectoId(Long proyectoId) {
+        return usuarioProyectoRepository.findByProyectoId(proyectoId);
+    }
+
     public Optional<UsuarioProyecto> obtenerUsuarioProyectoPorId(Long id) {
         return usuarioProyectoRepository.findById(id);
     }
