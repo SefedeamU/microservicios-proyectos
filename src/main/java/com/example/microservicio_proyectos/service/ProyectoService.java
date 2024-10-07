@@ -23,7 +23,7 @@ public class ProyectoService {
     public List<TareaDto> obtenerTareasPorProyecto(Long proyectoId) {
         return webClientBuilder.build()
                 .get()
-                .uri("http://microservicio_tareas/tareas?proyectoId=" + proyectoId)
+                .uri("http://microservicio_tareas:8080/tareas?proyectoId=" + proyectoId)
                 .retrieve()
                 .bodyToFlux(TareaDto.class)
                 .collectList()

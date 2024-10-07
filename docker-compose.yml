@@ -1,8 +1,8 @@
-version: '3.7'
 
 services:
-  springboot-app:
+  microservicio_proyectosspringboot-app:
     build: .
+    container_name: microservicios_proyectos
     ports:
       - "8080:8080"
     networks:
@@ -11,3 +11,10 @@ services:
 networks:
   microservicios_network_mv1:
     external: true
+
+
+
+
+
+
+
